@@ -43,7 +43,7 @@ function deleteDigit() {
 function calculate() {
     let result;
     if (lastOperator == "+") {
-        result = memoryDisplay + display.value;
+        result = Number(memoryDisplay) + Number(display.value);
     } else if (lastOperator == "-") {
         result = memoryDisplay - display.value;
     } else if (lastOperator == "*") {

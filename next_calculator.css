@@ -3,42 +3,79 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #333;
-}
-.calculator {
-    width: 300px;
-    background: #000;
-    border-radius: 5px;
-    padding: 20px;
-    box-shadow: 0 0 10px #999;
-}
-input#display {
-    width: 95%;
-    padding: 10px;
-    margin-bottom: 10px;
-    background: #333;
-    border: none;
+    background-color: #282c34;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
     color: white;
+}
+
+.calculator {
+    width: 350px;
+    background: linear-gradient(145deg, #1a1f25, #232932);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    transition: all 0.3s ease-in-out;
+}
+
+input#display {
+    width: calc(100% - 20px);
+    padding: 12px 10px;
+    margin-bottom: 15px;
+    background: rgba(50, 50, 60, 0.8);
+    border: 2px solid #333;
+    color: #ddd;
     font-size: 2em;
     text-align: right;
+    border-radius: 4px;
 }
+
 .keys button {
-    width: 32%;
-    padding: 10px;
-    margin: 5px 0;
-    font-size: 1.5em;
-    background: #666;
+    width: 30.4%;
+    padding: 15px;
+    margin: 5px 1%;
+    font-size: 1.2em;
+    background: #404854;
     border: none;
-    color: white;
+    color: #f0f0f0;
     border-radius: 5px;
+    transition: transform 0.1s ease-in-out, background-color 0.1s ease;
+    outline: none;
 }
+
+.keys button:hover {
+    background-color: #505964;
+    cursor: pointer;
+}
+
 .keys button:active {
-    background: #888;
+    background-color: #606a74;
+    transform: scale(0.95);
 }
+
 .equals {
-    background: #0044cc;
+    background: #1462cc;
+    box-shadow: 0px 2px #0d47a1;
+}
+
+#equals:hover {
+    background: #1e88e5;
+}
+
+#equals:active {
+    background: #1565c0;
+    transform: scale(0.98);
 }
 
 #equals {
     width: 100%;
+    transition: background-color 0.2s ease;
+}
+
+#wid1, #wid2 {
+    width: 47%;
+}
+
+.active-operator {
+    background-color: #ff9500; /* Or any color you prefer for active state */
 }

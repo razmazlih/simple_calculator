@@ -7,8 +7,6 @@ function isOperator(character) {
     return operators.includes(character);
 }
 
-// const isPoint = character => character == "."
-
 function input(value) {
     if (isOperator(value)) {
         lastOperator = value;
@@ -50,8 +48,6 @@ function calculate() {
         result = memoryDisplay * display.value;
     } else if (lastOperator == "/") {
         result = memoryDisplay / display.value;
-    } else if (lastOperator == "%") {
-        result = memoryDisplay % display.value;
     } else {
         console.log(`Error: the lastOperator is ${lastOperator}`);
     }

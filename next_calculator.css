@@ -1,0 +1,44 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #333;
+}
+.calculator {
+    width: 300px;
+    background: #000;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 10px #999;
+}
+input#display {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: #333;
+    border: none;
+    color: white;
+    font-size: 2em;
+    text-align: right;
+}
+.keys button {
+    width: 32%;
+    padding: 10px;
+    margin: 5px 0;
+    font-size: 1.5em;
+    background: #666;
+    border: none;
+    color: white;
+    border-radius: 5px;
+}
+.keys button:active {
+    background: #888;
+}
+.equals {
+    background: #0044cc;
+}
+
+#equals {
+    width: 100%;
+}

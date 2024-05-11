@@ -1,42 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Calculator</title>
     <link rel="stylesheet" href="./next_calculator.css">
-    <link rel="icon" href="./media/calculator.png" type="image/x-icon">
-    <link rel="shortcut icon" href="./media/calculator.png" type="image/x-icon">
-
+    <link rel="icon" href="./media/calculator.png" type="image/png">
 </head>
-
 <body>
     <div class="calculator">
         <input type="text" id="display" disabled>
         <div class="keys">
-            <button onclick="clearDisplay()">C</button>
-            <button onclick="deleteDigit()">CE</button>
-            <button onclick="parentheses()">( )</button>
-            <button id="divide" class="operator" onclick="addOperator('/')">÷</button>
-            <button id="multiply" class="operator" onclick="addOperator('*')">x</button>
-            <button id="subtract" class="operator" onclick="addOperator('-')">-</button>
-            <button onclick="addNumber('7')">7</button>
-            <button onclick="addNumber('8')">8</button>
-            <button onclick="addNumber('9')">9</button>
-            <button onclick="addNumber('4')">4</button>
-            <button onclick="addNumber('5')">5</button>
-            <button onclick="addNumber('6')">6</button>
-            <button onclick="addNumber('1')">1</button>
-            <button onclick="addNumber('2')">2</button>
-            <button onclick="addNumber('3')">3</button>
-            <button id="add" class="operator" onclick="addOperator('+')">+</button>
-            <button onclick="addNumber('0')">0</button>
-            <button onclick="addPoint('.')">.</button>
-            <button onclick="calculate()" class="equals" id="equals">=</button>
+            <button onclick="clearDisplay()" class="button">C</button>
+            <button onclick="deleteDigit()" class="button">CE</button>
+            <button onclick="parentheses()" class="button">( )</button>
+            <button id="divide" class="operator button" onclick="addOperator('/')">÷</button>
+            <button id="multiply" class="operator button" onclick="addOperator('*')">x</button>
+            <button id="subtract" class="operator button" onclick="addOperator('-')">-</button>
+            <button onclick="addNumber('7')" class="button">7</button>
+            <button onclick="addNumber('8')" class="button">8</button>
+            <button onclick="addNumber('9')" class="button">9</button>
+            <button onclick="addNumber('4')" class="button">4</button>
+            <button onclick="addNumber('5')" class="button">5</button>
+            <button onclick="addNumber('6')" class="button">6</button>
+            <button onclick="addNumber('1')" class="button">1</button>
+            <button onclick="addNumber('2')" class="button">2</button>
+            <button onclick="addNumber('3')" class="button">3</button>
+            <button id="add" class="operator button" onclick="addOperator('+')">+</button>
+            <button onclick="addNumber('0')"class="button">0</button>
+            <button onclick="addPoint('.')"class="button">.</button>
+            <button class="equals" id="equals" onclick="calculate()">=</button>
         </div>
     </div>
-    <script src="./next_calculator.js"></script>
+    <script src="./calculator.js"></script>
 </body>
-
 </html>

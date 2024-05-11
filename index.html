@@ -12,23 +12,24 @@
     <div class="calculator">
         <input type="text" id="display" disabled>
         <div class="keys">
-            <button onclick="clearDisplay()" id="wid1">C</button>
-            <button onclick="deleteDigit()" id="wid2">CE</button>
-            <button id="divide" class="operator" onclick="input('/')">÷</button>
-            <button id="multiply" class="operator" onclick="input('*')">x</button>
-            <button id="subtract" class="operator" onclick="input('-')">-</button>
-            <button onclick="input('7')">7</button>
-            <button onclick="input('8')">8</button>
-            <button onclick="input('9')">9</button>
-            <button onclick="input('4')">4</button>
-            <button onclick="input('5')">5</button>
-            <button onclick="input('6')">6</button>
-            <button onclick="input('1')">1</button>
-            <button onclick="input('2')">2</button>
-            <button onclick="input('3')">3</button>
-            <button id="add" class="operator" onclick="input('+')">+</button>
-            <button onclick="input('0')">0</button>
-            <button onclick="input('.')">.</button>
+            <button onclick="clearDisplay()">C</button>
+            <button onclick="deleteDigit()">CE</button>
+            <button onclick="parentheses()">( )</button>
+            <button id="divide" class="operator" onclick="addOperator('/')">÷</button>
+            <button id="multiply" class="operator" onclick="addOperator('*')">x</button>
+            <button id="subtract" class="operator" onclick="addOperator('-')">-</button>
+            <button onclick="addNumber('7')">7</button>
+            <button onclick="addNumber('8')">8</button>
+            <button onclick="addNumber('9')">9</button>
+            <button onclick="addNumber('4')">4</button>
+            <button onclick="addNumber('5')">5</button>
+            <button onclick="addNumber('6')">6</button>
+            <button onclick="addNumber('1')">1</button>
+            <button onclick="addNumber('2')">2</button>
+            <button onclick="addNumber('3')">3</button>
+            <button id="add" class="operator" onclick="addOperator('+')">+</button>
+            <button onclick="addNumber('0')">0</button>
+            <button onclick="addPoint('.')">.</button>
             <button onclick="calculate()" class="equals" id="equals">=</button>
         </div>
     </div>

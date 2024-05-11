@@ -1,55 +1,101 @@
-let lastTap;
-let lastOperator;
-let memoryDisplay;
+display.value = 0
+const operators = ['+', '-', '*', '/', '%'];
 
-function isOperator(character) {
-    const operators = ['+', '-', '*', '/', '%'];
-    return operators.includes(character);
-}
+const lastCharacter = () => display.value[display.value.length - 1];
+const isLastOperator = () => operators.includes(lastCharacter());
 
-function input(value) {
-    if (isOperator(value)) {
-        lastOperator = value;
-        memoryDisplay = display.value;
-    }
-    if (display.value == 0 || isOperator(lastTap)) {
-        display.value = "";
-    }
-    if (display.value.includes(".") && value == ".") {
-        lastTap = "point";
+function addNumber(value) {
+    if (lastCharacter() == ")") {
         return;
     }
-    if (isOperator(value)) {
-        lastTap = value
-    } else {
-        lastTap = "number";
-        display.value += value;
+
+    if (display.value == 0 && display.value.length == 1) {
+        display.value = value;
+        return;
     }
+    display.value += value;
 }
+
 function clearDisplay() {
     display.value = 0;
-    lastTap = "clear";
 }
+
 function deleteDigit() {
-    if (lastTap == "equals") {
+    if (display.value.length == 1) {
+        display.value = 0;
         return;
     }
     display.value = display.value.slice(0, -1);
-    lastTap = "delete one";
+}
+
+function addOperator(operator) {
+    if (isLastOperator()) {
+        deleteDigit();
+    }
+    display.value += operator;
+}
+
+function addPoint() {
+
+    if (isLastOperator() || lastCharacter() == "(") {
+        display.value += "0.";
+        return;
+    }
+
+    let noPoint = !display.value.includes(".");
+    if (noPoint) {
+        display.value += ".";
+        return;
+    }
+
+    let lastCheck;
+
+    for (let character = display.value.length; character != 0; character--) {
+        lastCheck = display.value[character];
+        if (operators.includes(lastCheck)) {
+            display.value += ".";
+            return;
+        } else if (lastCheck == ".") {
+            return;
+        }
+    }
+}
+
+function parentheses() {
+    let isParentheses = display.value.includes("(");
+
+    if (!isLastOperator() && !isParentheses) {
+        display.value += "*";
+    }
+
+    if (!display.value.includes("(")) {
+        display.value += "(";
+        return;
+    }
+
+    for (let character = display.value.length; character != 0; character--) {
+        lastCheck = display.value[character];
+        if (lastCheck == "(") {
+            if (lastCharacter() == "(" || isLastOperator()) {
+                return;
+            }
+            display.value += ")";
+            return;
+        } else if (lastCheck == ")") {
+            if (!isLastOperator()) {
+                display.value += "*";
+            }
+            display.value += "(";
+            return;
+        }
+    }
+
 }
 
 function calculate() {
-    let result;
-    if (lastOperator == "+") {
-        result = Number(memoryDisplay) + Number(display.value);
-    } else if (lastOperator == "-") {
-        result = memoryDisplay - display.value;
-    } else if (lastOperator == "*") {
-        result = memoryDisplay * display.value;
-    } else if (lastOperator == "/") {
-        result = memoryDisplay / display.value;
-    } else {
-        console.log(`Error: the lastOperator is ${lastOperator}`);
+    try {
+        display.value = eval(display.value);
+    } catch (e) {
+        display.value = "Error";
     }
-    display.value = result;
 }

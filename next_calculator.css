@@ -72,10 +72,6 @@ input#display {
     transition: background-color 0.2s ease;
 }
 
-#wid1, #wid2 {
-    width: 47%;
-}
-
 .active-operator {
     background-color: #ff9500; /* Or any color you prefer for active state */
 }

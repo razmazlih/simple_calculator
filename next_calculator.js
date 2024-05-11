@@ -93,6 +93,18 @@ function parentheses() {
 }
 
 function calculate() {
+    if (display.value.includes("(")) {
+        for (let character = display.value.length; character != 0; character--) {
+            lastCheck = display.value[character];
+            if (lastCheck == "(") {
+                display.value += ")";
+                break;
+            } else if (lastCheck == ")") {
+                break;
+            }
+        }
+    }
+
     try {
         display.value = eval(display.value);
     } catch (e) {

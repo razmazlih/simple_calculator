@@ -29,6 +29,10 @@ function deleteDigit() {
 }
 
 function addOperator(operator) {
+    if (lastCharacter() == "(") {
+        return;
+    }
+
     if (isLastOperator()) {
         deleteDigit();
     }

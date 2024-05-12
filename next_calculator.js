@@ -1,5 +1,8 @@
-display.value = 0
+display.value = 0;
 const operators = ['+', '-', '*', '/', '%'];
+
+let activeOperator;
+const allOperators = document.querySelectorAll('.operator');
 
 const lastCharacter = () => display.value[display.value.length - 1];
 const isLastOperator = () => operators.includes(lastCharacter());
@@ -17,10 +20,12 @@ function addNumber(value) {
 }
 
 function clearDisplay() {
+    activeThisOperator()
     display.value = 0;
 }
 
 function deleteDigit() {
+    activeThisOperator()
     if (display.value.length == 1) {
         display.value = 0;
         return;
@@ -28,7 +33,26 @@ function deleteDigit() {
     display.value = display.value.slice(0, -1);
 }
 
+function activeThisOperator() {
+    // הסרת המחלקה 'active' מכל הכפתורים פרט לכפתור שנלחץ
+    allOperators.forEach(btn => {
+        btn.classList.remove('active-operator');
+    });
+    let isOperator = String(this.classList).includes("operator");
+    // הוספת המחלקה 'active' לכפתור שנלחץ כעת
+    if (isOperator) {
+        this.classList.add('active-operator');
+    }
+}
+
 function addOperator(operator) {
+
+    // פונקציה שמטפלת באירוע לחיצה על כל כפתור
+    allOperators.forEach(button => {
+        button.addEventListener('click', activeThisOperator)
+    });
+
+
     if (lastCharacter() == "(") {
         return;
     }
@@ -66,6 +90,7 @@ function addPoint() {
 }
 
 function parentheses() {
+    activeThisOperator();
     let isParentheses = display.value.includes("(");
 
     if (!isLastOperator() && !isParentheses) {
@@ -97,6 +122,7 @@ function parentheses() {
 }
 
 function calculate() {
+    activeThisOperator();
     if (display.value.includes("(")) {
         for (let character = display.value.length; character != 0; character--) {
             lastCheck = display.value[character];

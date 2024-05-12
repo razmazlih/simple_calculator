@@ -27,14 +27,10 @@ body {
 input#display,
 .equals {
     width: 93%;
-    /* רוחב שווה לשלושה כפתורים מעל */
     margin: auto;
-    /* ממרכז את הכפתורים והקלט בקונטיינר */
     display: block;
-    /* מבטיח שהם יתפסו שורה מלאה לבד */
     padding: 12px;
     margin-bottom: 10px;
-    /* מרווח מתחת לקלט */
     background: rgba(50, 50, 60, 0.8);
     border: none;
     color: #ecf0f1;
@@ -60,7 +56,7 @@ input#display,
 }
 
 /* אפקטים בעת העברת העכבר מעל כפתור */
-.keys button:hover {
+.keys .button:hover {
     background-color: #34c9eb;
     color: #0a0a0a;
     cursor: pointer;
@@ -68,7 +64,7 @@ input#display,
 }
 
 /* התנהגות כפתורים בעת לחיצה */
-.keys button:active {
+.keys .button:active {
     transform: translateY(4px);
     box-shadow: 0 2px #666;
 }

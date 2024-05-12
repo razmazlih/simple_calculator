@@ -8,6 +8,17 @@ const lastCharacter = () => display.value[display.value.length - 1];
 const isLastOperator = () => operators.includes(lastCharacter());
 
 function addNumber(value) {
+    let checkParentheses = display.value[display.value.length - 2] == "(";
+    let checkOperator = operators.includes(display.value[display.value.length - 2]);
+    let isLastZero = lastCharacter() == "0";
+    if (isLastZero && value == "0" && checkParentheses) {
+        return;
+    }
+
+    if (lastCharacter() != "(" && value == "0" && isLastZero && checkOperator) {
+        return;
+    }
+
     if (lastCharacter() == ")") {
         return;
     }
